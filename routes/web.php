@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layouts.app');
+});
+
+Route::middleware('localized')->prefix(app()->getLocale())->group(function(){
+    Route::resource('posts',PostController::class);
 });
