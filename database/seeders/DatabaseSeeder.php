@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,5 +15,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // User::factory(10)->create();
+
+        $this->call(PostSeeder::class);
+        // php artisan db:seed --class=PostSeeder
+        // php artisan migrate:fresh --seed
+
     }
 }
